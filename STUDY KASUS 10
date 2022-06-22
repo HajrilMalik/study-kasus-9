@@ -1,0 +1,112 @@
+#include <iostream>
+using namespace std;
+
+class node {
+	public :
+		int data;
+		string nama;
+		node *berikut;
+};
+
+int main() {
+	// Data pertama
+	node *pertama;
+	pertama = new node;
+	pertama -> data = 2100018399;
+	pertama -> nama = "honda";
+	pertama -> berikut = NULL;
+	cout << "Isi data node pertama adalah \t: " << pertama->data <<endl;
+
+	// Data kedua
+	node *kedua;
+	kedua = new node;
+	kedua -> data = 2100018397;
+	kedua -> nama = "mazda";
+	kedua -> berikut = NULL;
+	cout << "Isi data node kedua adalah \t: " << kedua->data <<endl;
+	
+	// Data ketiga
+	node *ketiga;
+	ketiga = new node;
+	ketiga -> data = 2100018396;
+	ketiga -> nama = "toyota";
+	kedua -> berikut = NULL;
+	cout << "Isi data node ketiga adalah \t: " << ketiga->data <<endl;
+	
+	// Data Keempat
+	node *keempat;
+	keempat = new node;
+	keempat -> data = 1910001122;
+	keempat -> nama = "alya";
+	keempat -> berikut = NULL;
+	cout << "Isi data node keempat adalah \t: " << keempat->data <<endl;
+	
+	// Data Kelima
+	node *kelima;
+	kelima = new node;
+	kelima -> data = 2100018999;
+	kelima -> nama = "arya";
+	kelima -> berikut = NULL;
+	cout << "Isi data node kelima adalah \t: " << kelima->data <<endl;
+	
+	// Data Keenam
+	node *keenam;
+	keenam = new node;
+	keenam -> data = 1100008103;
+	keenam -> nama = "Miko";
+	keenam -> berikut = NULL;
+	cout << "Isi data node keenam adalah \t: " << keenam->data <<endl;
+	
+	// langkah tiga : menyambung rantai
+	pertama -> berikut = kedua;
+	cout <<endl << "Isi data node pertama dicetak dari node kedua adalah : ";
+	cout << pertama -> berikut -> data <<endl;
+	
+	kedua -> berikut = ketiga;
+	cout << "Isi data node kedua dicetak dari node ketiga adalah : ";
+	cout << kedua -> berikut -> data <<endl;
+	
+	ketiga -> berikut = keempat;
+	cout << "Isi data node ketiga dicetak dari node keempat adalah : ";
+	cout << ketiga -> berikut -> data <<endl;
+	
+	keempat -> berikut = kelima;
+	cout << "Isi data node keempat dicetak dari node kelima adalah : ";
+	cout << keempat -> berikut -> data <<endl;
+	
+	kelima -> berikut = keenam;
+	cout << "Isi data node kelima dicetak dari node keenam adalah : ";
+	cout << kelima -> berikut -> data <<endl;
+	
+	
+	// langkah empat	
+	node *kepala = pertama;
+	node *subheader = ketiga;
+	node *footer = kelima;
+	cout <<endl << "Mencetak node pertama dari pointer kepala : ";
+	cout << kepala -> data <<endl;
+	cout << "Mencetak node kedua dari pointer kepala : ";
+	cout << kepala -> berikut -> data <<endl;
+	cout << "Mencetak node ketiga dari pointer kepala : ";
+	cout << subheader -> data <<endl;
+	cout << "Mencetak node keempat dari pointer kepala : ";
+	cout << subheader -> berikut -> data << endl;
+	cout << "Mencetak node kelima dari pointer kepala : ";
+	cout << footer -> data <<endl;
+	cout << "Mencetak node keenam dari pointer kepala : ";
+	cout << footer -> berikut -> data <<endl;
+	
+	// langkah lima : pointer yang jalan-jalan
+	cout <<endl;
+	cout << "----------------------------------------------\n";
+	cout << "     DAFTAR PESERTA LOMBA PARMATIKA FINAL    |\n";
+	cout << "----------------------------------------------\n";
+	node *jalan = kepala;
+	int i = 1;
+	while (jalan != NULL) {
+		cout << "Data ke-" << i << "  >  NIM : " << jalan -> data 
+			 <<"\t Nama : " << jalan -> nama <<endl;
+		i++;
+		jalan = jalan -> berikut;
+	}
+}
